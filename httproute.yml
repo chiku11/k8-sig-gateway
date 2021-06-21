@@ -1,0 +1,14 @@
+kind: HTTPRoute
+apiVersion: networking.x-k8s.io/v1alpha1
+metadata:
+  name: node-web
+  labels:
+    gateway: node-web-gw
+spec:
+  gateways:
+    allow: All
+  hostnames: ["*"]
+  rules:
+  - forwardTo:
+    - serviceName: node-web
+      port: 8080 
